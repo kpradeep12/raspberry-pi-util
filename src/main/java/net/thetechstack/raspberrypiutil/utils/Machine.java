@@ -13,6 +13,14 @@ public class Machine {
             e.printStackTrace();
         }
     }
+    public static void reboot() {
+        try {
+            Process p = Runtime.getRuntime().exec("sudo reboot");
+            p.waitFor();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     public static String ipAddress() {
         InetAddress IP;
         try {

@@ -16,11 +16,15 @@ public class App
         app.get(context + "/ip", ctx -> {
             ctx.result(Machine.ipAddress());
         });
+        app.get(context + "/reboot", ctx -> {
+            Machine.reboot();
+        });
         app.get(context + "/help", ctx -> {
             StringBuilder output = new StringBuilder();
             output.append("<ul>");
             output.append("<li>/hello > returns 'Hello World'");
             output.append("<li>/shutdown > Shutdown PI");
+            output.append("<li>/reboot > Reboot PI");
             output.append("<li>/ip > returns IP address");
             output.append("</ul>");
             ctx.html(output.toString());
